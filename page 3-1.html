@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Template</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="favicon 2.png">
+    <style>
+        html{
+            height: 100%;
+        }
+        body{
+            margin: 0;
+            background-image: url("three.jpeg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            margin-top: 52px;
+            height: 100%;
+        }
+        div.nav1 {
+            background-color: black;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+        div.nav1 p{
+            float: left;
+        }
+        div.nav1 p a{
+            color: white;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        div.nav1 input{
+            padding: 16px 16px;
+        }
+        div.nav1 p a:hover{
+            background-color: gray;
+        }
+        .container-fluid{
+            background-color: rgba(134, 187, 195,0.7);
+            min-height: 100%;
+        }
+        #solution{
+            height: 270px;
+            width: 100%;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 20px;
+        }
+        #ham{
+            display: none;
+            margin-top: 5px;
+        }
+        .content{
+            padding: 10px;
+            font-size: 20px;
+
+        }
+        @media screen and (max-width:576px){
+            div.nav1{
+                display: none;
+            }
+            #ham{
+                display: block;
+            }
+        }
+    </style>
+    <script src="code.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <img src="hamburger-menu-line-icon-free-vector.jpg" alt="hambugger" id="ham" height="30px" width="30px" onclick="myFunction()" align="right">
+        <div class="nav1" id="nav">
+            <p><a href="#not">Notifications</a></p>
+            <input type="text" placeholder="Search here">
+            <p style="float: right"><a href="#not">Profile</a></p>
+            <p style="float:right"><a href="#not">About us</a></p>
+        </div>
+        <div class="content">
+            <h1>Problem statement</h1>
+            <label for="myfile">Enter field:</label>
+            <input type="text" placeholder="Enter field here..">
+            <textarea id="solution" placeholder="Enter your problem here"></textarea>
+            <label for="myfile">Select last date:</label>
+            <input type="date" >
+            <input type="submit" value="Submit" style="font-size: large; padding: 5px; display: block;">
+        </div>
+    </div>
+    
+</body>
+</html>

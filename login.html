@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon 2.png">
+    <title>Login</title>
+    <style>
+        body{
+            background-image: url("three.jpeg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        #content{
+            width: 40%;
+            margin: auto;
+            border: 1px solid gray;
+            padding: 5%;
+            background-color: rgb(255, 255, 255)
+        }
+        .input{
+            padding: 2%;
+            width: 95%;
+            margin-bottom: 1%;
+        }
+        .log_in{
+            padding: 2%;
+            width: 100%;
+            margin-bottom: 1%;
+        }
+        .password{
+            position: relative;
+        }
+        #button{
+            position: absolute;
+            right: 0;
+            padding: 2%;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div id="content">
+            <h1>Login</h1>
+            <input type="text" placeholder="Email or username" class="input">
+            <div class="password">
+                <button id="button" onclick="fun1()">Show</button>
+                <input type="password" placeholder="Password" class="input" oninput="fun2()">
+            </div>
+            <button class="log_in">Log in</button>
+            <a href="#not">Forgot password?</a>
+            <hr>
+            <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+        </div>
+    </div>
+    <script>
+        var password=document.getElementsByClassName("input")[1];
+        var button=document.getElementById("button");
+        function fun1()
+        {
+            if(button.innerHTML=="Show")
+            {
+                password.type="text";
+                button.innerHTML="Hide";
+            }
+            else
+            {
+                password.type="password";
+                button.innerHTML="Show";
+            }
+        }
+        function fun2()
+        {
+            if(password.value.length!=0)
+            {
+                button.style.display="inline-block";
+            }
+            else
+            {
+                button.style.display="none";
+            }
+        }
+    </script>
+</body>
+</html>
