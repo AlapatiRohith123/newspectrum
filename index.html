@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon 2.png">
+    <title>Sign up</title>
+    <style>
+        body{
+            background-image: url("three.jpeg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }/*
+        body{
+            background: linear-gradient(45deg,#fead06,#c00def);
+        }*/
+        #content{
+            width: 40%;
+            margin: auto;
+            border: 1px solid gray;
+            padding: 5%;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 2px 2px 20px rgb(0,0,0);
+        }
+        .radio{
+            border: 1px solid gray;
+            padding: 2%;
+            margin-right: 1%;
+        }
+        .input{
+            padding: 2%;
+            width: 100%;
+            margin-bottom: 1%;
+            box-sizing: border-box;
+        }
+        .sign_up{
+            display: block;
+            padding: 2%;
+            margin: auto;
+            margin-top: 3%;
+            font-size: medium;
+        }
+        .password{
+            position: relative;
+        }
+        #button{
+            position: absolute;
+            right: 0;
+            padding: 2%;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div id="content">
+            <h1>Sign up</h1>
+            <input type="text" placeholder="Full Name" class="input">
+            <input type="email" placeholder="Email" class="input">
+            <input type="text" placeholder="Username" class="input">
+            <div class="password">
+                <button id="button" onclick="fun5()">Show</button>
+                <input type="password" placeholder="Password" class="input" oninput="fun6()">
+            </div>
+            <p>Gender:</p>
+            <span class="radio">
+                <label for="gender1">Male</label>
+                <input type="radio" class="gender1" onclick="fun1()">
+            </span>
+            <span class="radio">
+                <label for="gender2">Female</label>
+                <input type="radio" class="gender2" onclick="fun2()">
+            </span>
+            <p>Occupation:</p>
+            <span class="radio">
+                <label for="student">Student</label>
+                <input type="radio" class="student" onclick="fun3()">
+            </span>
+            <span class="radio">
+                <label for="entrepreneur">Entrepreneur</label>
+                <input type="radio" class="entrepreneur" onclick="fun4()">
+            </span>
+            <button class="sign_up" onclick="location.href='login.html';">Sign Up</button>
+            <hr>
+            <p>Have an account? <a href="login.html">Log in</a></p>
+        </div>
+    </div>
+    <script>
+        var gender1=document.getElementsByClassName("gender1")[0];
+        var gender2=document.getElementsByClassName("gender2")[0];
+        var student=document.getElementsByClassName("student")[0];
+        var entrepreneur=document.getElementsByClassName("entrepreneur")[0];
+        var password=document.getElementsByClassName("input")[3];
+        var button=document.getElementById("button");
+        function fun1()
+        {
+            if(gender2.checked)
+            {
+                gender2.checked=false;
+            }
+        }
+        function fun2()
+        {
+            if(gender1.checked)
+            {
+                gender1.checked=false;
+            }
+        }
+        function fun3()
+        {
+            if(entrepreneur.checked)
+            {
+                entrepreneur.checked=false;
+            }
+        }
+        function fun4()
+        {
+            if(student.checked)
+            {
+                student.checked=false;
+            }
+        }
+        function fun5()
+        {
+            if(button.innerHTML=="Show")
+            {
+                password.type="text";
+                button.innerHTML="Hide";
+            }
+            else
+            {
+                password.type="password";
+                button.innerHTML="Show";
+            }
+        }
+        function fun6()
+        {
+            if(password.value.length!=0)
+            {
+                button.style.display="inline-block";
+            }
+            else
+            {
+                button.style.display="none";
+            }
+        }
+    </script>
+</body>
+</html>

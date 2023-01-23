@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>UX</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="favicon 2.png">
+    <style>
+        body{
+            margin: 0;
+            background-image: url("three.jpeg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            margin-top: 52px;
+        }
+        div.nav1 {
+            background-color: black;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+        div.nav1 p a{
+            color: white;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        div.nav1 input{
+            padding: 16px 16px;
+        }
+        div.nav1 p a:hover{
+            background-color: gray;
+        }
+        .container-fluid{
+            background-color: rgba(134, 187, 195,0.8);
+        }
+        #solution{
+            height: 270px;
+            width: 100%;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 20px;
+        }
+        #ham{
+            display: none;
+        }
+        .content{
+            padding: 10px;
+            font-size: 20px;
+
+        }
+        .right{
+            float: right;
+        }
+        #notifications{
+            float: left;
+        }
+        @media screen and (max-width:576px){
+            #notifications{
+                float: none;
+            }
+            div.nav1 p, div.nav1 input{
+                display: none;
+                float: none;
+            }
+            body{
+                margin-top: 30px;
+            }
+            #ham{
+                display: block;
+            }
+        }
+    </style>
+    <script src="code.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="nav1" id="nav">
+            <img src="hamburger-menu-line-icon-free-vector.jpg" alt="hambugger" id="ham" height="30px" width="30px" onclick="myFunction()" style="float: right;">
+            <p id="notifications"><a href="#not">Notifications</a></p>
+            <input type="text" placeholder="Search here">
+            <p class="right"><a href="#not">Profile</a></p>
+            <p class="right"><a href="#not">About us</a></p>
+        </div>
+        <div class="content">
+            <h1>Problem statement</h1>
+            <p>Users of our proposal software have reported frustration at having to copy information into the CRM after they send a proposal. They use their CRMs to track all email conversations, phone calls, and other lead and client interactions. Without CRM integrations, our proposal software causes a frustrating experience for our power users. While users from very small businesses and firms don’t have this issue, we are hearing from sales reps at SMBs and enterprises that the need to duplicate proposal sending information in their CRM causes an additional two to three hours of work every week. The problem is that we don’t have any integrations with CRMs and we have not yet identified the CRMs of our best users. We need to send segmented surveys to determine our priorities for the first three CRMs to integrate with, and we need to build in the user flows around these integrations.</p>
+            <h2>Solution</h2>
+            <textarea id="solution" placeholder="Enter your solution here"></textarea>
+            <label for="myfile">Link related files:</label>
+            <div id="dup0">
+                <input type="file" id="myfile" name="myfile">
+                <canvas id="myCanvas" width="22" height="22" onclick="fun('add0')" style="cursor: pointer;"></canvas>
+                <canvas id="myCanvas2" width="22" height="22" style="display: none;"></canvas><br>
+            </div>
+            <br>
+            <input type="submit" value="Submit" style="font-size: large; padding: 5px;">
+        </div>
+    </div>
+    <script>
+        var c=document.getElementById("myCanvas");
+        var ctx=c.getContext("2d");
+        ctx.beginPath();
+        ctx.fillStyle="white";
+        ctx.strokeStyle="green";
+        ctx.arc(11,11,10,0,2*Math.PI);
+        ctx.stroke();
+        ctx.fill();
+        ctx.beginPath();
+        ctx.moveTo(11,3);
+        ctx.lineTo(11,19);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(3,11);
+        ctx.lineTo(19,11);
+        ctx.stroke();
+        var ca=document.getElementById("myCanvas2");
+        var ctxa=ca.getContext("2d");
+        ctxa.beginPath();
+        ctxa.fillStyle="white";
+        ctxa.strokeStyle="red";
+        ctxa.arc(11,11,10,0,2*Math.PI);
+        ctxa.stroke();
+        ctxa.fill();
+        ctxa.beginPath();
+        ctxa.moveTo(3,11);
+        ctxa.lineTo(19,11);
+        ctxa.stroke();
+        var count=1;
+        function fun(id)
+        {
+            var file=document.getElementById("myfile");
+            var fclone=document.createElement("input");
+            fclone.type="file";
+            fclone.id="file"+count;
+            var div=document.createElement("div");
+            div.id="dup"+count;
+            var br=document.createElement("br")
+            br.id="break"+count;
+            div.appendChild(fclone);
+            var canvas1=document.createElement("canvas");
+            var ctx1=canvas1.getContext("2d");
+            canvas1.width=c.width;
+            canvas1.height=c.height;
+            canvas1.id="add"+count;
+            canvas1.style.marginRight="4px";
+            canvas1.style.marginLeft="4px";
+            canvas1.style.cursor="pointer";
+            canvas1.setAttribute("onClick","javascript: fun(this.id);");
+            ctx1.drawImage(c,0,0);
+            div.appendChild(canvas1);
+            var canvas2=document.createElement("canvas");
+            var ctx2=canvas2.getContext("2d");
+            canvas2.width=ca.width;
+            canvas2.height=ca.height;
+            canvas2.id="remove"+count;
+            canvas2.style.cursor="pointer";
+            canvas2.setAttribute("onClick","javascript: fun2(this.id);");
+            ctx2.drawImage(ca,0,0);
+            div.appendChild(canvas2);
+            div.appendChild(br);
+            var index=id.slice(3);
+            document.getElementById("dup"+index).after(div);
+            count++;
+        }
+        function fun2(id)
+        {
+            var index=id.slice(6);
+            document.getElementById("dup"+index).remove();
+        }
+    </script>
+</body>
+</html>

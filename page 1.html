@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Student</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="favicon 2.png">
+    <style>
+        body{
+            margin-top: 10%;
+            margin-left: 0;
+            background-image: url("three.jpeg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        div.nav1 {
+            background-color: black;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+        div.nav1 p a{
+            color: white;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        div.nav1 p a:hover{
+            background-color: gray;
+        }
+        #ham{
+            display: none;
+        }
+        .right{
+            float: right;
+        }
+        #notifications{
+            float: left;
+        }
+        @media screen and (max-width:576px){
+            #notifications{
+                float: none;
+            }
+            div.nav1 p, div.nav1 input{
+                display: none;
+                float: none;
+            }
+            body{
+                margin-top: 30px;
+            }
+            #ham{
+                display: block;
+            }
+        }
+        p.content a{
+            display: block;
+            width: 40%;
+            padding: 8% 0;
+            font-size: 25px;
+            margin: auto;
+            border: 2px solid black;
+            text-align: center;
+            background-color: rgba(134, 187, 195,0.5);
+            text-decoration: none;
+            color: black;
+        }
+        p.content a:hover{
+            font-size: 30px;
+        }
+    </style>
+    <script src="code.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="nav1" id="nav">
+            <img src="hamburger-menu-line-icon-free-vector.jpg" alt="hambugger" id="ham" height="30px" width="30px" onclick="myFunction()" style="float: right;">
+            <p id="notifications"><a href="#not">Notifications</a></p>
+            <p class="right"><a href="#not">Profile</a></p>
+            <p class="right"><a href="#not">About us</a></p>
+        </div>
+        <p class="content"><a href="page 1-1.html">My Ideas</a></p>
+        <p></p>
+        <p class="content"><a href="page 2.html">Post a solution for existing problems</a></p>
+    </div>
+</body>
+</html>
